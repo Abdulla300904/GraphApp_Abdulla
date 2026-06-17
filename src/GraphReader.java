@@ -11,14 +11,22 @@ public class GraphReader {
 
         String line;
 
+        // Пропускаем первую строку: ;A;B;C;D
+        br.readLine();
+
         while ((line = br.readLine()) != null) {
+
+            if (line.trim().isEmpty()) {
+                continue;
+            }
 
             String[] values = line.split(";");
 
-            int[] row = new int[values.length];
+            int[] row = new int[values.length - 1];
 
-            for (int i = 0; i < values.length; i++) {
-                row[i] = Integer.parseInt(values[i]);
+            // Начинаем с 1, потому что values[0] = A/B/C/D
+            for (int i = 1; i < values.length; i++) {
+                row[i - 1] = Integer.parseInt(values[i]);
             }
 
             rows.add(row);
