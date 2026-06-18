@@ -21,8 +21,7 @@ public class Main {
 
             for (int i = 0; i < ecc.length; i++) {
 
-                System.out.println( (char)('A' + i) + " -> " + ecc[i]
-                );
+                System.out.println( (char)('A' + i) + " -> " + ecc[i]);
             }
 
             System.out.println();
